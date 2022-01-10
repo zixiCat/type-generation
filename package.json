@@ -1,0 +1,34 @@
+{
+  "name": "@cassinfo/type-generation",
+  "version": "0.2.1",
+  "repository": {
+    "type": "git"
+  },
+  "description": "Swagger-UI 接口类型文件生成工具",
+  "files": [
+    "lib",
+    "package.json",
+    "README.md"
+  ],
+  "scripts": {
+    "start": "npx rollup -c -w",
+    "build": "cross-env NODE_ENV=prod eslint ./src/** && cross-env NODE_ENV=prod npx rollup -c",
+    "gen": "node ./lib/index.js",
+    "gen:mock": "cross-env NODE_ENV=mock node ./lib/index.js",
+    "test": "cypress run -C ../../cypress.json -s $PWD/__tests__/*spec.ts"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chalk": "^4.1.1",
+    "eslint": "^7.24.0",
+    "multi-progress": "^4.0.0",
+    "progress": "^2.0.3"
+  },
+  "bin": {
+    "type-gen": "./lib/index.js"
+  },
+  "devDependencies": {
+    "@types/multi-progress": "^2.0.3",
+    "cross-env": "^7.0.3"
+  }
+}
