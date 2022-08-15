@@ -1,0 +1,53 @@
+{
+  "name": "@zixicat/type-generation",
+  "version": "0.2.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zixiCat/type-generation"
+  },
+  "homepage": "https://github.com/zixiCat/type-generation",
+  "private": false,
+  "description": "Swagger-UI 接口类型文件生成工具",
+  "files": [
+    "lib",
+    "package.json",
+    "README.md"
+  ],
+  "scripts": {
+    "start": "npx rollup -c -w",
+    "build": "npx rollup -c",
+    "gen": "node ./lib/index.js",
+    "gen:mock": "npx rollup -c && cross-env NODE_ENV=mock node --trace-warnings ./lib/index.js",
+    "test": "cypress run -C ../../cypress.json -s $PWD/__tests__/*spec.ts"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chalk": "^4.1.1",
+    "config-pack": "^1.4.3",
+    "eslint": "^8.6.0",
+    "multi-progress": "^4.0.0",
+    "progress": "^2.0.3"
+  },
+  "bin": {
+    "type-gen": "./lib/index.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/eslint": "^8.2.2",
+    "@types/multi-progress": "^2.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "cross-env": "^7.0.3",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.5.1",
+    "rollup": "^2.63.0",
+    "rollup-plugin-typescript2": "^0.31.1",
+    "typescript": "^4.5.4"
+  }
+}
