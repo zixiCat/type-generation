@@ -1,4 +1,5 @@
 # @zixicat/type-generation
+[![NPM Status](https://img.shields.io/npm/v/@zixicat/type-generation.svg)](https://www.npmjs.com/package/@zixicat/type-generation)
 
 Swagger-UI 接口类型文件生成工具
 
