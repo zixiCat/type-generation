@@ -1,4 +1,4 @@
-import { fetchDataRes } from './mockData';
+// import { fetchDataRes } from './mockData';
 import axios from 'axios';
 import chalk from 'chalk';
 import ProgressBar from 'progress';
@@ -73,7 +73,8 @@ export default async () => {
         );
         resolve(resArr);
       } else {
-        resolve([fetchDataRes as any]);
+        // resolve([fetchDataRes as any]);
+        resolve([{} as any]);
       }
     } else {
       const fetchName = moduleName;

@@ -1,13 +1,5 @@
-/**
- * The following are the devDependencies needed,
- * you can also install them directly by using:
- * yarn add --dev rollup rollup-plugin-sass rollup-plugin-typescript2
- * The devDependencies:
- * rollup
- * rollup-plugin-sass
- * rollup-plugin-typescript2
- * */
 import typescript from 'rollup-plugin-typescript2';
+import { terser } from 'rollup-plugin-terser';
 
 export default {
   input: 'src/index.ts',
@@ -16,10 +8,24 @@ export default {
       dir: 'lib',
       format: 'cjs',
       exports: 'named',
-      sourcemap: true,
+      sourcemap: false,
       strict: false,
     },
   ],
-  plugins: [typescript()],
-  external: ['react', 'react-dom'],
+  plugins: [shebangPlugin(), typescript(), terser()],
 };
+
+/**
+ * add shebang line to top of index
+ * @return {string} final code
+ */
+function shebangPlugin() {
+  return {
+    name: 'shebangPlugin',
+    renderChunk(code, chunk) {
+      const id = chunk.fileName;
+      if (id !== 'index.js') return null;
+      return '#!/usr/bin/env node\n' + code;
+    },
+  };
+}

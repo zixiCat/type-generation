@@ -1,5 +1,5 @@
-# @zixicat/type-generation
-[![NPM Status](https://img.shields.io/npm/v/@zixicat/type-generation.svg)](https://www.npmjs.com/package/@zixicat/type-generation)
+# type-generation
+[![NPM Status](https://img.shields.io/npm/v/type-generation.svg)](https://www.npmjs.com/package/type-generation)
 
 Swagger-UI 接口类型文件生成工具
 
@@ -11,9 +11,9 @@ Swagger-UI 接口类型文件生成工具
 ## 安装
 
 ```sh
-npm i --save-dev @zixicat/type-generation
+npm i --save-dev type-generation
 或者
-yarn add --dev @zixicat/type-generation
+yarn add --dev type-generation
 ```
 
 ## 配置
@@ -55,15 +55,15 @@ module.exports = {
 
 **拉取配置中的每个工程的所有类型**
 ```
-npx type-gen
+npx type-generation
 ```
 **拉取对应 api 所涉及的类型**
 
 默认的工程名取 api 中 saas-api 后面一词形成的组合 saas-{ $arg }-application，如下工程名取 saas-business-application。
 ```
-npx type-gen -a=/saas-api/business/vip-card/bind-car/query
+npx type-generation -a=/saas-api/business/vip-card/bind-car/query
 或者
-npx type-gen --api=/saas-api/business/vip-card/bind-car/query
+npx type-generation --api=/saas-api/business/vip-card/bind-car/query
 ```
 
 需特殊处理如 saas-crm-canal-new-application 这样的，则需要加上 `--name=saas-crm-canal-new-application` 或者 `-n=saas-crm-canal-new-application`。
